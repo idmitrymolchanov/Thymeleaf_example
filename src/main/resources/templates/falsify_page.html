@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>falsify page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+</head>
+<body>
+<div>
+    <form th:action="@{/falsify_page.html}" method="post" th:object="${theTempBean}">
+        <blockquote class="blockquote text-center">
+            <p class="mb-0 h1 mt-4 mb-4">Throw in a voice</p>
+            <p class="mb-0 h3 mt-4 mb-4">(if you dare)</p>
+        </blockquote>
+
+        <div class="form-group">
+            <div class="form-row mb-2">
+                <div class="form-group col-md"></div>
+                <div class="form-group col-md-2">
+                    <input type="text" placeholder="enter quantity" class="form-control input-lg border border-info" th:field="*{voteYes}"></input>
+                </div>
+                <div class="form-group col-md"></div>
+            </div>
+            <div class="form-row mb-2">
+                <div class="form-group col-md"></div>
+                <div class="form-group col-md-2">
+                    <input type="text" placeholder="for or against" class="form-control input-lg border border-info" th:field="*{voteNo}"></input>
+                </div>
+                <div class="form-group col-md"></div>
+            </div>
+            <button type="submit" class="btn-lg btn-primary mt-4 mb-4 d-block mx-auto center-block">submit</button>
+        </div>
+    </form>
+</div>
+<!-- /.container -->
+<!-- JS лучше импортировать в конце файлов что бы во время выполнения скриптов вся DOM структура уже была загружена -->
+<script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+</body>
+</html>
