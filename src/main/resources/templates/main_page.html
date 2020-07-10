@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>try to vote</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">MAIN page</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">not main page</a></li>
+                <li><a href="#about">super not main page</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div>
+    <form th:action="@{/main_page.html}" method="post" th:object="${theTempBean}">
+        <blockquote class="blockquote text-center">
+            <p class="mb-0 h1 mt-4 mb-4">Try to vote</p>
+            <p class="mb-0 h3 mt-4 mb-4">(if you dare)</p>
+        </blockquote>
+
+        <div class="form-group" th:each="prod : ${myVarYes}">
+            <svg width="28%" height="28%" viewBox="0 0 42 42" class="donut center-block" th:utext="${str}">
+            </svg>
+
+            <div class="form-row mb-4">
+                <div class="form-group col-md-2">
+                    <button type="submit" name="voteYes" class="btn btn-primary center-block mx-auto form-control" th:onsubmit="*{voteYes}">YES</button>
+                </div>
+                <div class="form-group col-md-2">
+                    <button type="submit" name="voteNo" class="btn btn-primary center-block mx-auto form-control" th:checked="*{voteNo}">NO</button>
+                </div>
+                <div class="form-group col-md-2">
+                    <a type="button" class="btn btn-warning center-block form-control" href="/falsify_page">ВБРОСИТЬ</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- /.container -->
+<!-- JS лучше импортировать в конце файлов что бы во время выполнения скриптов вся DOM структура уже была загружена -->
+<script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
